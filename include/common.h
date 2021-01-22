@@ -22,11 +22,13 @@
 
 #include <grp.h>
 
+#include <time.h>
+
 extern void is_err(ssize_t ret, char *opt); 
 extern void is_null_err(void *ret, char *opt); 
 
 
-// 系统文件函数
+// 系统IO函数
 extern int my_open(const char *pathname, int flags, ...);
 extern int my_close(int fd);
 extern ssize_t my_read(int fd, void *buf, size_t count);
@@ -36,7 +38,7 @@ extern int my_dup(int oldfd);
 extern int my_dup2(int oldfd, int newfd);
 
 
-// 系统属性函数
+// 文件属性函数
 extern int my_stat(const char *pathname, struct stat *statbuf);
 extern int my_lstat(const char *pathname, struct stat *statbuf);
 extern int my_fstat(int fd, struct stat *statbuf);
@@ -62,3 +64,10 @@ extern struct passwd *my_getpwuid(uid_t uid);
 extern struct passwd *my_getpwnam(const char *name);
 extern struct group *my_getgrgid(gid_t gid);
 extern struct group *my_getgrnam(const char *name);
+
+// 系统时间
+extern time_t my_time(time_t *tloc);
+extern char *my_ctime(const time_t *timep);
+extern struct tm *my_gmtime(const time_t *timep);
+extern struct tm *my_localtime(const time_t *timep);
+extern time_t my_mktime(struct tm *tm);

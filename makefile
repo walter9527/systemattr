@@ -6,7 +6,7 @@ DIR_OBJ = $(BUILD)/obj
 TARGET	= main
 
 # 模块所在目录
-SRCS	= $(wildcard systemtime/lesson02_group.c common/*.c)
+SRCS	= $(wildcard systemtime/lesson04_ctime.c common/*.c)
 OBJS	= $(addprefix $(DIR_OBJ)/, $(patsubst %.c, %.o, $(SRCS)))
 
 INCLUDES = -I include
@@ -21,6 +21,7 @@ all:
 	@echo "1.检查编译目录是否存在"	
 	@if [ ! -d build ]; then \
 	mkdir -p build/obj/systemfile; \
+	mkdir -p build/obj/systemtime; \
 	mkdir -p build/obj/common; \
 	echo "编译目录已创建"; \
 	fi
